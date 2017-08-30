@@ -2,6 +2,7 @@ package mvc_observable;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Observer;
 
 public class Controller implements ActionListener {
 
@@ -12,12 +13,13 @@ public class Controller implements ActionListener {
 
 	public Controller(StudentModel student) {
 		this.student = student;
-		this.student.registerListener(this);
 	}
 
 	public void addView(ConsoleView view) {
 		this.views.add(view);
+		
 		view.registerListener(this);
+		this.student.addObserver(view);
 		view.init();
 	}
 

@@ -1,4 +1,5 @@
 package mvc_controller_god;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -28,7 +29,6 @@ public class StudentModel {
 	}
 
 	private void proccessEvent(String command) {
-
 		for (ActionListener actionListener : listeners) {
 			actionListener.actionPerformed(new ActionEvent(this, -1, command));
 		}

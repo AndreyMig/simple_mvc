@@ -1,12 +1,16 @@
 package mvc_observable;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class StudentModel {
+import javafx.beans.InvalidationListener;
+import java.util.Observable;
+
+public class StudentModel  extends Observable {
 
 	private String name;
-	private ArrayList<ActionListener> listeners = new ArrayList<ActionListener>();
+	private ArrayList<InvalidationListener> listeners = new ArrayList<InvalidationListener>();
 
 	public StudentModel(String name) {
 		this.name = name;
@@ -28,16 +32,7 @@ public class StudentModel {
 	}
 
 	private void proccessEvent(String command) {
-
-		for (ActionListener actionListener : listeners) {
-			actionListener.actionPerformed(new ActionEvent(this, -1, command));
-		}
-
-	}
-
-	public void registerListener(ActionListener listener) {
-		this.listeners.add(listener);
-
+		notifyObservers(command);
 	}
 
 }

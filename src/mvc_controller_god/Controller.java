@@ -7,6 +7,8 @@ public class Controller implements ActionListener {
 
 	public final static String MODEL_NAME_CHANGED_EVENT = "STUDENT_NAME_WAS_SET_EVENT";
 
+	public static final String SET_NAME_EVENT = "SET_NAME_EVENT";
+
 	private ArrayList<ConsoleView> views = new ArrayList<ConsoleView>();
 	private StudentModel student;
 
@@ -31,6 +33,17 @@ public class Controller implements ActionListener {
 			for (ConsoleView consoleView : views) {
 				consoleView.showModel(name);
 			}
+
+			break;
+		case SET_NAME_EVENT:
+			
+			ConsoleView cv = (ConsoleView) event.getSource();
+			
+//			String name = student.getName();
+			this.student.setName(cv.getCurrentValueOfNameField());
+//			for (ConsoleView consoleView : views) {
+//				consoleView.showModel(name);
+//			}
 
 			break;
 
