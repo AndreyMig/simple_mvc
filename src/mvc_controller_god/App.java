@@ -10,6 +10,7 @@ public class App {
 
 		StudentModel student = new StudentModel("andrey");
 		Controller c = new Controller(student);
+		
 		ConsoleView cv = new ConsoleView();
 		c.addView(cv);
 		

@@ -10,11 +10,11 @@ public class Controller implements ActionListener {
 	public static final String SET_NAME_EVENT = "SET_NAME_EVENT";
 
 	private ArrayList<ConsoleView> views = new ArrayList<ConsoleView>();
-	private StudentModel student;
+	private StudentModel model;
 
 	public Controller(StudentModel student) {
-		this.student = student;
-		this.student.registerListener(this);
+		this.model = student;
+		this.model.registerListener(this);
 	}
 
 	public void addView(ConsoleView view) {
@@ -25,10 +25,10 @@ public class Controller implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		System.out.println(event.getActionCommand());
+//		System.out.println(event.getActionCommand());
 		switch (event.getActionCommand()) {
 		case MODEL_NAME_CHANGED_EVENT:
-			String name = student.getName();
+			String name = model.getName();
 			
 			for (ConsoleView consoleView : views) {
 				consoleView.showModel(name);
@@ -40,7 +40,7 @@ public class Controller implements ActionListener {
 			ConsoleView cv = (ConsoleView) event.getSource();
 			
 //			String name = student.getName();
-			this.student.setName(cv.getCurrentValueOfNameField());
+			this.model.setName(cv.getCurrentValueOfNameField());
 //			for (ConsoleView consoleView : views) {
 //				consoleView.showModel(name);
 //			}
