@@ -44,4 +44,13 @@ public class BinyaminController implements IBinyaminListener {
 
 	}
 
+	@Override
+	public void addTimeStampClicked(String string) {
+		
+			this.model.addSuffix(string);
+			
+		
+		
+	}
+
 }

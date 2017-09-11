@@ -9,5 +9,7 @@ public interface IBinyaminModel {
 //	String[] getWords();
 	
 	void setPrefix(String prefix);
+
+	void addSuffix(String string);
 	
 }
